@@ -50,3 +50,24 @@ fetch(basePostUrl, {
       console.error("Error retrieving summary:", error);
     });
 }
+
+// GET list of ratings
+function getRatingList() {
+  const listUrl =
+    baseListUrl + "?itemId=ITEM_123&page=1&pageSize=10";
+
+  fetch(listUrl)
+    .then((response) => {
+      console.log("\nGET /ratings/list - HTTP status:", response.status);
+      return response.json();
+    })
+    .then((data) => {
+      console.log("\nList Response:");
+      console.log(JSON.stringify(data, null, 2));
+
+      console.log("\nRatings Microservice Test Completed.");
+    })
+    .catch((error) => {
+      console.error("Error retrieving rating list:", error);
+    });
+}
