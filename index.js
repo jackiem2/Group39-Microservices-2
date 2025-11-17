@@ -62,4 +62,32 @@ app.post("/ratings", (req, res) => {
   });
 
 });
-  
+
+// GET rating summary
+app.get("/ratings/summary", (req, res) => {
+  const { itemId } = req.query;
+
+  if (!itemId) {
+    return res.status(400).json({ error: "Missing required query 'itemId'" });
+  }
+
+  const itemRatings = SAMPLE_RATINGS.filter(r => r.itemId === itemId);
+
+  if (itemRatings.length === 0) {
+    return res.json({
+      itemId,
+      averageRating: 0,
+      totalReviews: 0
+    });
+  }
+
+  const totalReviews = itemRatings.length;
+  const sum = itemRatings.reduce((acc, r) => acc + r.rating, 0);
+  const avg = sum / totalReviews;
+
+  res.json({
+    itemId,
+    averageRating: Number(avg.toFixed(2)),
+    totalReviews
+  });
+});
