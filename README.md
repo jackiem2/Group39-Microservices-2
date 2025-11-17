@@ -147,3 +147,4 @@ node microservice_ratings_test.js
 This test shows that POST accepts requests and stores ratings.
 
 ## 3. UML Sequence Diagram – Search Microservice
+![UML Diagram](./UML-SEQUENCE-2.png)
