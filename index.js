@@ -91,3 +91,32 @@ app.get("/ratings/summary", (req, res) => {
     totalReviews
   });
 });
+
+// GET list of ratings
+app.get("/ratings/list", (req, res) => {
+  const { itemId, page = "1", pageSize = "10" } = req.query;
+
+  if (!itemId) {
+    return res.status(400).json({ error: "Missing required query 'itemId'" });
+  }
+
+  const all = SAMPLE_RATINGS.filter(r => r.itemId === itemId);
+
+  const p = parseInt(page, 10);
+  const size = parseInt(pageSize, 10);
+  const start = (p - 1) * size;
+
+  const paged = all.slice(start, start + size);
+
+  res.json({
+    itemId,
+    page: p,
+    pageSize: size,
+    ratings: paged
+  });
+});
+
+// start server
+app.listen(PORT, () => {
+  console.log(`Ratings Microservice running on http://localhost:${PORT}`);
+});
