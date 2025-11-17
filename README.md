@@ -20,7 +20,7 @@ http://localhost:5002
 ```
 ### Example for REQUESTING 
 
-- SEND POST TO `"Ratings Service /ratings"` WITH BODY:
+- 1. SEND POST TO `"Ratings Service /ratings"` WITH BODY:
  itemId = "ITEM_123"
  rating = 5
  comment = "Great quality!"
@@ -35,7 +35,7 @@ http://localhost:5002
 }
  ```
 
-- SEND GET TO `"Ratings Service /ratings/summary"` WITH QUERY:
+- 2. SEND GET TO `"Ratings Service /ratings/summary"` WITH QUERY:
  itemId = "ITEM_123"
 
  ```json
@@ -46,11 +46,11 @@ http://localhost:5002
 }
 ```
 
-- SEND GET TO `"Ratings Service /ratings/list"` WITH QUERY:
+- 3. SEND GET TO `"Ratings Service /ratings/list"` WITH QUERY:
  itemId = "ITEM_123"
  page = 1
  pageSize = 10
- 
+
 ```json
 {
   "itemId": "ITEM_123",
