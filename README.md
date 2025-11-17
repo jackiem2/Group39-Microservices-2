@@ -10,7 +10,7 @@ This microservice allows users to submit, update, and view ratings and comments 
 
 ## 1. How to Programmatically REQUEST Data
 
-- **Method:** `GET`, `POST`  
+- **Method:** REST API `GET`, `POST`  
 - **Data:** `JSON`
 - **Base URL:** `HTTP`
 

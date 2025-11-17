@@ -22,3 +22,44 @@ const SAMPLE_RATINGS = [
     createdAt: "2025-11-11T09:30:00Z"
   }
 ];
+
+app.get("/", (req, res) => {
+  res.send("Ratings Microservice is running. Use /ratings, /ratings/summary, or /ratings/list.");
+});
+
+// POST route for submitting or updating a rating
+app.post("/ratings", (req, res) => {
+  // read data from the request body
+  const { itemId, rating} = req.body;
+
+  // check for required fields
+  if (!itemId) {
+    return res.status(400).json({ error: "Missing required field 'itemId'" });
+  }
+
+  if (rating == null) {
+    return res.status(400).json({ error: "Missing required field 'rating'" });
+  }
+
+  const ratingNumber = Number(rating);
+  if (ratingNumber < 1 || ratingNumber > 5) {
+    return res.status(400).json({ error: "Rating must be between 1 and 5" });
+  }
+  // push new rating
+  SAMPLE_RATINGS.push({
+    itemId,
+    rating: ratingNumber,
+    comment: comment || "",
+    createdAt: new Date().toISOString()
+  });
+
+  // response
+  res.json({
+    message: "New rating added successfully",
+    itemId,
+    rating: ratingNumber,
+    comment: comment || ""
+  });
+
+});
+  
