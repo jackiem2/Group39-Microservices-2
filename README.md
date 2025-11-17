@@ -128,4 +128,22 @@ http://localhost:5002/ratings/summary?itemId=ITEM_123
 List of all ratings and comments for item:
 http://localhost:5002/ratings/list?itemId=ITEM_123&page=1&pageSize=10
 
+### To cjeck if POST/ratings is functional
+
+- Run on new terminal: 
+```text
+node microservice_ratings_test.js
+```
+- JSON object response
+``` json
+{
+  "message": "New rating added successfully",
+  "itemId": "ITEM_123",
+  "rating": 5,
+  "comment": "Amazing quality!"
+}
+```
+
+This test shows that POST accepts requests and stores ratings.
+
 ## 3. UML Sequence Diagram – Search Microservice
