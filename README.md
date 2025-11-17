@@ -62,6 +62,18 @@ http://localhost:5002
   ]
 }
 ```
+
 ## 2. How to Programmatically RECEIVE Data
+When another program sends a valid request to the Ratings Microservice, the service responds with JSON.
+The JSON allows the calling program to display:
+
+- latest rating
+
+- average rating
+
+- total reviews
+
+- all user comments
+
 
 ## 3. UML Sequence Diagram – Search Microservice
