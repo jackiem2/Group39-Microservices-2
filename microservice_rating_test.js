@@ -23,9 +23,30 @@ fetch(basePostUrl, {
   .then((data) => {
     console.log("\nPOST Response:");
     console.log(JSON.stringify(data, null, 2));
-    
+
     getRatingSummary();
   })
   .catch((error) => {
     console.error("\nError sending rating:", error);
   });
+
+  // GET rating summary
+  function getRatingSummary() {
+  const summaryUrl = baseSummaryUrl + "?itemId=ITEM_123";
+
+  fetch(summaryUrl)
+    .then((response) => {
+      console.log("\nGET /ratings/summary - HTTP status:", response.status);
+      return response.json();
+    })
+    .then((data) => {
+      console.log("\nSummary Response:");
+      console.log(JSON.stringify(data, null, 2));
+
+      // After summary renders, get list
+      getRatingList();
+    })
+    .catch((error) => {
+      console.error("Error retrieving summary:", error);
+    });
+}
