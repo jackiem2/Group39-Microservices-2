@@ -9,3 +9,23 @@ const ratingData = {
   rating: 5,
   comment: "Amazing quality!"
 };
+
+// Make POST request
+fetch(basePostUrl, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(ratingData)
+})
+  .then((response) => {
+    console.log("POST /ratings - HTTP status:", response.status);
+    return response.json();
+  })
+  .then((data) => {
+    console.log("\nPOST Response:");
+    console.log(JSON.stringify(data, null, 2));
+    
+    getRatingSummary();
+  })
+  .catch((error) => {
+    console.error("\nError sending rating:", error);
+  });
