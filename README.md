@@ -116,6 +116,8 @@ Once Express is installed, start the server with:
 npm start
 ```
 - If everything is working, you will see:
-
+```text
+Ratings Microservice running on http://localhost:5002
+```
 
 ## 3. UML Sequence Diagram – Search Microservice
