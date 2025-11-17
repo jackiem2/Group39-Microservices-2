@@ -75,5 +75,47 @@ The JSON allows the calling program to display:
 
 - all user comments
 
+### Example for RECEIVING
+- REQUEST WAS SENT TO "Ratings Microservice"
+
+- WAIT FOR RESPONSE
+
+```text
+IF response received:
+    READ DATA TYPE = JSON
+        DISPLAY:
+          averageRating
+          totalReviews
+          list of ratings/comments
+ELSE:
+    SHOW "Rating could not be loaded"
+```
+
+### Example JSON object 
+```json
+{
+  "itemId": "ITEM_123",
+  "averageRating": 4.6,
+  "totalReviews": 18,
+  "ratings": [
+    { "userId": "USER001", "rating": 5, "comment": "Great!" }
+  ]
+}
+```
+## Installation & Running the Microservice
+-  Install Express
+
+Open your terminal inside the project folder and run:
+```text
+npm install express
+```
+
+-  Start the Microservice
+Once Express is installed, start the server with:
+```text
+npm start
+```
+- If everything is working, you will see:
+
 
 ## 3. UML Sequence Diagram – Search Microservice
