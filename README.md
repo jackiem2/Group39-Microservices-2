@@ -119,5 +119,13 @@ npm start
 ```text
 Ratings Microservice running on http://localhost:5002
 ```
+### Working Example URLs
+You can test this microservice directly in your browser using these URLs once you have it running:
+
+Total reviews for item:
+http://localhost:5002/ratings/summary?itemId=ITEM_123
+
+List of all ratings and comments for item:
+http://localhost:5002/ratings/list?itemId=ITEM_123&page=1&pageSize=10
 
 ## 3. UML Sequence Diagram – Search Microservice
