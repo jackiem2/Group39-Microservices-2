@@ -1,4 +1,4 @@
-# Microservice #1 : Search Microserivce
+# Microservice #2 : Ratings Microserivce
 # Overview
 This microservice allows users to submit, update, and view ratings and comments for items.
 
