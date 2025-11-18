@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
 // POST route for submitting or updating a rating
 app.post("/ratings", (req, res) => {
   // read data from the request body
-  const { itemId, rating} = req.body;
+  const { itemId, rating, comment} = req.body;
 
   // check for required fields
   if (!itemId) {
