@@ -128,7 +128,7 @@ http://localhost:5002/ratings/summary?itemId=ITEM_123
 List of all ratings and comments for item:
 http://localhost:5002/ratings/list?itemId=ITEM_123&page=1&pageSize=10
 
-### To cjeck if POST/ratings is functional
+### To check if POST/ratings is functional
 
 - Run on new terminal: 
 ```text
